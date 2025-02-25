@@ -1,0 +1,57 @@
+/* App.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.comedy-types {
+    margin-top: 20px;
+}
+
+.comedy-container {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    gap: 20px; /* Espace entre chaque type de comédie */
+}
+
+.comedy-item {
+    display: flex;
+    align-items: flex-start; /* Aligne l'image et le texte en haut */
+    padding: 10px;
+    border: 1px solid #ddd; /* Bordure autour de chaque élément */
+    border-radius: 8px;
+    transition: background-color 0.3s ease; /* Animation de fond au survol */
+}
+
+.comedy-item:hover {
+    background-color: #f9f9f9; /* Changement de couleur au survol */
+}
+
+.comedy-content {
+    margin-left: 20px; /* Espace entre l'image et le texte */
+}
+
+.comedy-content h3 {
+    margin: 0; /* Supprime les marges par défaut */
+    font-size: 1.5rem; /* Taille du titre */
+}
+
+.comedy-content p {
+    margin: 5px 0 0; /* Marges pour le paragraphe */
+    line-height: 1.5; /* Hauteur de ligne pour une meilleure lisibilité */
+}
+
+/* Styles de la barre de navigation */
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit; /* Utilise la couleur du texte actuel */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+}
