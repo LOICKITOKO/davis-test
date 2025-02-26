@@ -17,83 +17,61 @@ const App = () => {
 
   return (
     <Router>
-      <div className={`p-4 max-w-6xl mx-auto ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
-        {/* Bouton pour changer le thème */}
-        <button onClick={toggleTheme} className="mb-4 px-4 py-2 border rounded">
-          {isDarkMode ? "Mode Clair" : "Mode Sombre"}
-        </button>
-
-        {/* Navigation */}
-        <nav className="flex justify-between mb-8">
-          <div>
-            <Link to="/" className="mr-4">Accueil</Link>
-            <Link to="/contact" className="mr-4">Contact</Link>
-            <Link to="/a-propos" className="mr-4">À propos</Link>
-            <Link to="/nos-sites" className="mr-4">Nos sites</Link>
-          </div>
-        </nav>
-
-        {/* Image d'accueil */}
-        <div className="flex items-center mb-8">
-          <img src={Image1} alt="Logo" className="w-24 h-24 mr-4" />
-          <div>
-            <h1 className="text-2xl font-bold">Bienvenue sur notre site de comédie</h1>
-            <p className="text-gray-600">Découvrez nos contenus hilarants et amusez-vous !</p>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+        <div className="navbar">
+          <button onClick={toggleTheme} className="toggle-btn">
+            {isDarkMode ? "Mode Clair" : "Mode Sombre"}
+          </button>
+          <div className="nav-links">
+            <Link to="/contact" className="nav-link">Contact</Link>
+            <Link to="/a-propos" className="nav-link">À propos</Link>
+            <Link to="/login" className="nav-link">Login</Link>
           </div>
         </div>
 
-        {/* Sous-titre : Nos types de comédies */}
-        <h2 className="text-xl font-semibold mb-4">Nos types de comédies</h2>
+        <div className="p-4 max-w-6xl mx-auto text-center">
+          <p className="description">
+            Bienvenue sur le site de référence de la comédie ! <br />
+            Découvrez les différents styles humoristiques qui font rire le monde entier.
+          </p>
 
-        {/* Types de comédies */}
-        <section className="comedy-types">
-          <div className="comedy-container">
-            <div className="comedy-item">
-              <img src={ImgComedy1} alt="Comédie romantique" className="w-32 h-32 mr-4" />
-              <div className="comedy-content">
-                <h3>Comédie romantique</h3>
-                <p>Les comédies romantiques mélangent amour et humour. Elles racontent les hauts et les bas des relations avec légèreté. Les personnages maladroits créent des situations drôles et attachantes. Ces films nous rappellent que l'amour peut être à la fois drôle et touchant.</p>
-              </div>
-            </div>
-
-            <div className="comedy-item">
-              <img src={ImgComedy2} alt="Comédie de situation" className="w-32 h-32 mr-4" />
-              <div className="comedy-content">
-                <h3>Comédie de situation</h3>
-                <p>Les comédies de situation, ou 'sitcoms', se concentrent sur des contextes humoristiques. Elles suivent un groupe d'amis ou une famille dans des situations cocasses. Les malentendus et les quiproquos sont à l'honneur, provoquant de nombreux rires. Chaque épisode apporte de nouvelles aventures tout en gardant l'esprit des personnages.</p>
-              </div>
-            </div>
-
-            <div className="comedy-item">
-              <img src={ImgComedy3} alt="Comédie noire" className="w-32 h-32 mr-4" />
-              <div className="comedy-content">
-                <h3>Comédie noire</h3>
-                <p>Les comédies noires traitent de sujets sérieux avec humour cynique. Elles montrent des personnages en dehors des normes sociales, soulignant l'absurde de la vie. Ce type de comédie mélange rire et réflexion. C'est une manière unique de remettre en question les conventions.</p>
-              </div>
-            </div>
-
-            <div className="comedy-item">
-              <img src={ImgComedy4} alt="Comédie d'animation" className="w-32 h-32 mr-4" />
-              <div className="comedy-content">
-                <h3>Comédie d'animation</h3>
-                <p>Les comédies d'animation séduisent petits et grands grâce à leur humour visuel. Elles combinent des thèmes fantastiques avec des situations quotidiennes. Les blagues et les jeux de mots font rire toute la famille. Ces films transmettent souvent des leçons de vie tout en étant très amusants.</p>
-              </div>
-            </div>
-
-            <div className="comedy-item">
-              <img src={ImgComedy5} alt="Comédie satirique" className="w-32 h-32 mr-4" />
-              <div className="comedy-content">
-                <h3>Comédie satirique</h3>
-                <p>Les comédies satiriques critiquent la société et la politique avec humour. Elles se moquent des comportements humains et des institutions. Par l'exagération, elles mettent en avant les absurdités de notre monde. Cela fait rire tout en nous poussant à réfléchir.</p>
-              </div>
-            </div>
+          <div className="flex items-center justify-center mb-8">
+            <img src={Image1} alt="Logo" className="logo" />
+            <h1 className="title">Bienvenue sur notre site de comédie</h1>
           </div>
-        </section>
-      </div>
 
-      <Routes>
-        {/* Ajoutez d'autres routes pour Contact, À propos et Nos sites si nécessaire */}
-      </Routes>
+          <h2 className="subtitle">Nos types de comédies</h2>
+
+          <section className="comedy-types">
+            <div className="comedy-container">
+              {[ 
+                { img: ImgComedy1, title: "Comédie romantique", desc: "Un mélange parfait d’amour et d’humour. Des situations drôles qui font battre le cœur.", className1: "romantic", className2: "satire", buttonText1: "🎭 Amour", buttonText2: "Humour" },
+                { img: ImgComedy2, title: "Comédie de situation", desc: "Des quiproquos hilarants et des personnages attachants. Le quotidien devient une aventure comique.", className1: "sitcom", className2: "dark-comedy", buttonText1: "😂 Rires", buttonText2: "Quotidiens" },
+                { img: ImgComedy3, title: "Comédie noire", desc: "Un humour mordant qui traite des sujets sérieux. Rire pour mieux réfléchir.", className1: "dark-comedy", className2: "animation", buttonText1: "🖤 Humour", buttonText2: "Mordant" },
+                { img: ImgComedy4, title: "Comédie d'animation", desc: "Des blagues visuelles et des histoires incroyables. Un plaisir pour tous les âges.", className1: "animation", className2: "sitcom", buttonText1: "🎬 Drôle", buttonText2: "Animé" },
+                { img: ImgComedy5, title: "Comédie satirique", desc: "Un regard critique et humoristique sur la société. Exagération et ironie au rendez-vous.", className1: "satire", className2: "romantic", buttonText1: "🎤 Rire", buttonText2: "Réflexion" }
+              ].map((comedy, index) => (
+                <div key={index} className="comedy-item">
+                  <img src={comedy.img} alt={comedy.title} className="comedy-image" />
+                  <div className="comedy-content">
+                    <h3>{comedy.title}</h3>
+                    <p>{comedy.desc}</p>
+                    <div className="flex space-x-2 mt-2">
+                      <button className={`comedy-button ${comedy.className1} px-4 py-2 rounded`}>{comedy.buttonText1}</button>
+                      <span>&</span>
+                      <button className={`comedy-button ${comedy.className2} px-4 py-2 rounded`}>{comedy.buttonText2}</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <Routes>
+          {/* Ajoutez d'autres routes pour Contact, À propos et Login si nécessaire */}
+        </Routes>
+      </div>
     </Router>
   );
 };
